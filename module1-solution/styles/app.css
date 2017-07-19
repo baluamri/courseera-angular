@@ -1,0 +1,10 @@
+.message {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.message-color-green {
+  color: green;
+}
+.message-color-red {
+  color: red;
+}
