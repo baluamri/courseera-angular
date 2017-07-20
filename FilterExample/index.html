@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Filter Example</title>
+    <script src="../angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="FilterExample">
+
+    <h1>Filter Example</h1>
+
+    <div ng-controller="FilterController">
+
+      <input type="text" name="" value=""
+        ng-model="name"><br>
+
+      Message : <span>{{message}}</span><br>
+      Message in UpperCase : <span>{{messageUpCase}}</span><br>
+      Message Love: <span>{{loveMessage}}</span><br>
+      Message Truth: <span>{{message | truth : "healthy": "cookies" | uppercase}}</span><br>
+      Snack Cost: <span>{{snackCost}}</span><br>
+
+      <button type="button" name="button" ng-click="changeImgView()">Switch View</button>
+      <img src="img\Tanu_{{tanuview}}view.JPG" alt="">
+
+    </div>
+
+  </body>
+</html>
