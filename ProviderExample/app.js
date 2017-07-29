@@ -9,7 +9,7 @@
     Config.$inject = ['ShoppingListServiceProvider'];
 
     function Config(ShoppingListServiceProvider) {
-      ShoppingListServiceProvider.defaults.maxItems = 2;
+      ShoppingListServiceProvider.defaults.maxItems = 4;
     }
 
     ShoppingListController1.$inject = [ 'ShoppingListService' ];
@@ -27,6 +27,7 @@
         }
       }
       list1.removeItem = function(index) {
+        console.log( "index :", index );
         ShoppingListService.removeItem( index );
         if( ShoppingListService.isWithinLimit() ) {
           list1.errorMsg = "";
@@ -60,7 +61,7 @@
         }
       };
       service.removeItem = function ( index ) {
-        items.splice( index );
+        items.splice( index, 1 );
       };
       service.isWithinLimit = function () {
         return (maxItems == undefined || items.length < maxItems);
