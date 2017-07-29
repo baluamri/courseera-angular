@@ -14,12 +14,20 @@
         <button type="button" ng-click="list1.addItem();">Add Item</button>
         <div>
             <ol>
-              <li ng-repeat="item in list1.items">{{item.name}} of {{item.qty}}</li>
+              <li ng-repeat="item in list1.items">{{item.name}} of {{item.qty}}
+                <button type="button" ng-click="list1.removeItem($index)">Remove Item</button>
+              </li>
             </ol>
         </div>
-        <div style="color:red;">
+        <!-- <div ng-if="list1.errorMsg" style="color:red;">
+          Error: {{list1.errorMsg}}
+        </div> -->
+        <div ng-show="list1.errorMsg" style="color:red;">
           Error: {{list1.errorMsg}}
         </div>
+        <!-- <div ng-hide="!list1.errorMsg" style="color:red;">
+          Error: {{list1.errorMsg}}
+        </div> -->
       </div>
 
   </body>

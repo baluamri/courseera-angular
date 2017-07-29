@@ -7,15 +7,18 @@
     .config(Config);
 
     Config.$inject = ['ShoppingListServiceProvider'];
+
     function Config(ShoppingListServiceProvider) {
-      ShoppingListServiceProvider.defaults.maxItems = 4;
+      ShoppingListServiceProvider.defaults.maxItems = 2;
     }
 
     ShoppingListController1.$inject = [ 'ShoppingListService' ];
+
     function ShoppingListController1( ShoppingListService ){
       var list1 = this;
       list1.name = "";
       list1.qty = "";
+      list1.items = ShoppingListService.getItems();
       list1.addItem = function () {
         try {
             ShoppingListService.addItem( list1.name, list1.qty );
@@ -23,7 +26,12 @@
           list1.errorMsg = error.message;
         }
       }
-      list1.items = ShoppingListService.getItems();
+      list1.removeItem = function(index) {
+        ShoppingListService.removeItem( index );
+        if( ShoppingListService.isWithinLimit() ) {
+          list1.errorMsg = "";
+        }
+      }
     }
 
     function ShoppingListProvider() {
@@ -41,7 +49,7 @@
       var items = [];
       service.addItem = function ( name, qty ) {
         console.log( " items size :", items.length );
-        if( maxItems == undefined || items.length < maxItems ) {
+        if( service.isWithinLimit() ) {
           var item = {
             name : name,
             qty : qty
@@ -51,6 +59,12 @@
           throw new Error("Already max size"+ maxItems +" is reached!");
         }
       };
+      service.removeItem = function ( index ) {
+        items.splice( index );
+      };
+      service.isWithinLimit = function () {
+        return (maxItems == undefined || items.length < maxItems);
+      }
       service.getItems = function () {
         return items;
       };
