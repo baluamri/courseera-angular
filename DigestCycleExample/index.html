@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Digest Cycle Example</title>
+    <script src="../angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="CounterApp">
+
+    <div ng-controller="CounterAppController">
+
+      <input type="text" name="" ng-model="name"></input>
+
+      <button type="button" name="button" ng-click="showNoOfWatchers()"
+        >log # of Watchers</button>
+
+      <button type="button" name="button" ng-click="countOnce()"
+        >Up once Counter (once)</button>
+
+      <button type="button" name="button" ng-click="count()"
+        >Up Counter </button>
+
+        <div class="">
+            Once Counter : {{onceCounter}} <br>
+            Up counter : {{counter}}
+        </div>
+    </div>
+
+
+  </body>
+</html>
