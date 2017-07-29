@@ -10,6 +10,7 @@
 
       $scope.onceCounter = 0;
       $scope.counter = 0;
+      $scope.name = "Balaji";
 
       $scope.showNoOfWatchers = function() {
           console.log( "Watchers count :", $scope.$$watchersCount );
@@ -23,10 +24,9 @@
         $scope.counter++;
       }
 
-      $scope.$watch = function( newValue, oldValue ) {
-        console.log( 'newValue : ', newValue  );
-        console.log( 'oldValue : ', oldValue  );
-      }
+      $scope.$watch(function() {
+        console.log( "Digest loop fired !!!" );
+      })
 
       // $scope.$watch('onceCounter', function (newValue, oldValue) {
       //   console.log( ' onceCounter > newValue :', newValue );
