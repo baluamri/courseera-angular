@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTTP service Example</title>
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="MenuCategoriesApp">
+    <h2>HTTP Service Example</h2>
+    <div ng-controller="MenuCategoriesController as list">
+      <ul>
+        <li ng-repeat="item in list.menuCategories">
+          <a href="#"
+            ng-click="list.logMenuItems(item.short_name);">({{item.short_name}})
+          </a> {{item.name}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
