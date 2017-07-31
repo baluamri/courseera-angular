@@ -66,7 +66,7 @@
     //   }
     // }
 
-    Implementation: 3
+    // Implementation: 3
     ShoppingListService.$inject = ['WeightLossFilter', '$q'];
     function ShoppingListService(WeightLossFilter, $q) {
       var service = this;
