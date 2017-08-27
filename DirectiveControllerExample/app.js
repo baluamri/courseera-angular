@@ -64,6 +64,7 @@
       };
       list1.removeItem = function(index) {
         shoppingListService.removeItem( index );
+        list1.title = origTitle + " ("+ list1.items.length + " items)";
       };
       list1.items = shoppingListService.getItems();
       list1.title = origTitle + " ( "+ list1.items.length + " items )";
